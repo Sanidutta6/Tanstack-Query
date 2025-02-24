@@ -10,8 +10,8 @@ interface FormState {
 const Login = () => {
     const { setUser } = useGlobalContext();
     const [form, setForm] = useState<FormState>({
-        username: "",
-        password: ""
+        username: "mor_2314",
+        password: "83r5^_"
     });
     const handleFormChange = (name: string, value: string) => {
         setForm({ ...form, [name]: value });

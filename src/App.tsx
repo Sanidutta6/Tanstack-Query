@@ -9,6 +9,7 @@ import {
 } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { GlobalContextProvider } from "./contexts/GlobalContext"
+import ViewProduct from "./pages/ViewProduct"
 
 
 // Create a client
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />
+      },
+      {
+        path: "/product/:id",
+        element: <ViewProduct />
       },
     ]
   },
