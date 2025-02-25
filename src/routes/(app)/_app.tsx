@@ -1,26 +1,23 @@
-import { createFileRoute, Outlet, useNavigate } from '@tanstack/react-router'
-import Header from '../../components/Header';
-import { useEffect } from 'react';
-import { useGlobalContext } from '../../contexts/GlobalContext';
+import Header from "../../components/Header";
+import { createFileRoute, Outlet, redirect } from "@tanstack/react-router";
+import { useGlobalContext } from "../../contexts/GlobalContext";
 
-export const Route = createFileRoute('/(app)/_app')({
+export const Route = createFileRoute("/(app)/_app")({
+  beforeLoad: async () => {
+    const { isLoggedIn } = useGlobalContext();
+
+    if (!isLoggedIn()) {
+      throw redirect({ to: "/login" }); // Prevents unauthorized users from loading the page
+    }
+  },
   component: AppLayout,
-})
+});
 
 function AppLayout() {
-  const { isLoggedIn } = useGlobalContext();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isLoggedIn()) {
-      navigate({ to: "/login" });
-    }
-  }, [isLoggedIn]);
-
   return (
-    <main className='h-screen min-w-screen'>
+    <main className="h-screen min-w-screen">
       <Header />
       <Outlet />
     </main>
-  )
+  );
 }

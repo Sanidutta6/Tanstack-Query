@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet, useNavigate } from '@tanstack/react-router'
-import { useGlobalContext } from '../../contexts/GlobalContext';
 import { useEffect } from 'react';
+import { useGlobalContext } from '../../contexts/GlobalContext';
 
 export const Route = createFileRoute('/(auth)/_auth')({
   component: AuthLayout,

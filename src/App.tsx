@@ -8,8 +8,8 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { GlobalContextProvider } from "./contexts/GlobalContext"
 import ViewProduct from "./pages/ViewProduct"
+import { GlobalContextProvider } from "./contexts/GlobalContext"
 
 
 // Create a client
