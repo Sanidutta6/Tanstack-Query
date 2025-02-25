@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { Link } from "@tanstack/react-router"
 
 interface ProductCardProps {
     id: number,
@@ -16,7 +16,7 @@ interface ProductCardProps {
 const ProductCard = (props: ProductCardProps) => {
     return (
         <div className='max-w-sm px-3 py-2 rounded-lg shadow-lg overflow-hidden border-2 border-gray-800 group'>
-            <Link to={`/product/${props.id}`}>
+            <Link to="/product/$productId" params={{ productId: props.id.toString() || "" }}>
                 <div>
                     <img src={props.imgUrl} alt={props.title} className='w-48 h-48 object-contain mx-auto group-hover:scale-105 duration-200' />
                 </div>

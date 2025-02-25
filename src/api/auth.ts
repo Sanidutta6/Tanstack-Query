@@ -7,7 +7,6 @@ interface LoginApiParams {
 
 export const loginApi = async ({ username, password }: LoginApiParams) => {
     try {
-        console.log(import.meta.env.VITE_BASE_URL)
         const response = await axios.post(import.meta.env.VITE_BASE_URL + "auth/login", { username, password });
 
         if (response.status === 200) {
